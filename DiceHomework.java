@@ -51,15 +51,13 @@ public class DiceHomework {
 			driver.findElement(By.id("findTechJobs")).click();
 			try {
 				count = driver.findElement(By.id("posiCountId")).getText();
-			} catch (
-
-			RuntimeException th) {
+			} catch (RuntimeException exception) {
 				count = "Error";
-				driver.navigate().back();
 			}
 
 			if (count.equals("Error")) {
 				System.out.println((i + 1) + ". No such job found.");
+				driver.navigate().back();
 			} else {
 
 				System.out.println((i + 1) + ". " + list.get(i) + "   " + count + " jobs are available");
